@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
+import Routes from './routes'
 
 ReactDOM.render(
-  <div>
-    <h1>Tic Tac</h1>
-  </div>,
+  <Router
+    children={Routes}
+  />,
   document.getElementById('root')
 )
