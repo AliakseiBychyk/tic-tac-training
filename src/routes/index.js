@@ -4,7 +4,7 @@ import Template from '../containers/Template'
 import Home from '../containers/Home'
 import Profile from '../containers/Profile'
 
-const createRoutes = () => (
+const Routes = () => (
   <Template>
     <Switch> 
       <Route path='/' exact component={Home} />
@@ -12,7 +12,5 @@ const createRoutes = () => (
     </Switch>
   </Template>
 )
-
-const Routes = createRoutes()
 
 export default Routes

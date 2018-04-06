@@ -5,7 +5,7 @@ import Routes from './routes'
 
 ReactDOM.render(
   <Router
-    children={Routes}
+    children={Routes()}
   />,
   document.getElementById('root')
 )
