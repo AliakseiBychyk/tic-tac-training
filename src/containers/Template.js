@@ -5,10 +5,6 @@ import NavDrawer from '../components/NavDrawer'
 
 injectTapEventPlugin()
 
-const style = {
-  margin: 12,
-}
-
 const Template = ({ children }) => (
   <MuiThemeProvider>
     <div>
