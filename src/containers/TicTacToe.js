@@ -12,16 +12,19 @@ class TicTacToe extends Component {
     gameOver: false,
     yourTurn: true,
     winner: false,
-    win: false
+    win: false,
+    size: 0,
+    unit: 0,
+    coordinates: []
   }
 
-  componentDidMount() {
-    let height = window.innerHeight
-    let width = window.innerWidth
-    let size = (height < width) ? height * .8 : width * .8
-    let rows = this.state.rows
-    let unit = size / rows
-    const rowsArray = [...Array(rows - 1).keys()]
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const height = window.innerHeight
+    const width = window.innerWidth
+    const size = (height < width) ? height * .8 : width * .8
+    const rows = prevState.rows
+    const unit = size / rows
+    const rowsArray = [...Array(rows).keys()]
     const coordinates = rowsArray.reduce((acc, y) => {
       rowsArray.forEach(x => {
         acc.push([x * unit, y * unit])
@@ -29,13 +32,12 @@ class TicTacToe extends Component {
       return acc
     }, [])
 
-
-    this.setState({
+    return {
       size,
       rows,
       unit,
-      coordinates
-    })
+      coordinates,
+    }
   }
 
   move = (marker, index) => {
@@ -61,7 +63,7 @@ class TicTacToe extends Component {
       yourTurn,
       ownMark
     } = this.state
-    
+
     return (
       <div>
         <Stage
